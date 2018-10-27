@@ -1,7 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-
+// 1st condition is for heroku
+const port = process.env.PORT || 3000;
 var app = express();
 
 // give path access to html
@@ -59,6 +60,6 @@ app.get('/bad', (req, res) => {
   });
 })
 
-app.listen(3000, () => {
-  console.log('server is on');
+app.listen(port, () => {
+  console.log(`server is on port ${port}`);
 });
